@@ -1,0 +1,17 @@
+from array import *
+import random
+
+n = int(input("Podaj liczbę znaków: "))
+
+tab1 = []
+
+for i in range(n):
+    dodawana = input("Podaj znak {}: ".format(i+1))
+    tab1.append(dodawana)
+
+# Wyświetlamy znaki w odwrotnej kolejności
+print("Znaki w odwrotnej kolejności:")
+for dodawana in reversed(tab1):
+    print(dodawana)
+
+

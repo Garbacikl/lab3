@@ -1,0 +1,40 @@
+import random
+
+def deck():
+    wartosci = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'D', 'K', 'A']
+    kolory = ['♠', '♣', '♦', '♥']
+    talia_kart = []
+    for wartosc in wartosci:
+        for kolor in kolory:
+            karta=(wartosc,kolor)
+            talia_kart.append(karta)
+
+    dlugosc_tablicy = len(talia_kart)
+    print("Ilość kart:", dlugosc_tablicy)        
+    return talia_kart
+
+talia_czysta=deck()
+
+def shuffle_deck(talia):
+    potasowana_talia = list(talia) 
+    random.shuffle(potasowana_talia)
+    return potasowana_talia
+
+talia_po_tasowaniu = shuffle_deck(talia_czysta)
+
+def deal(talia, n):
+    if n*5>len(talia):
+        print("Za mało kart dla graczy")
+        return 0
+    else:
+        rozdanie = []
+        for i in range(n):
+            karty_gracza=talia[i*5:(i+1)*5]
+            rozdanie.append(karty_gracza)
+        return rozdanie
+    
+rozdanie=deal(talia_po_tasowaniu,8)
+print("Rozdanie:")
+for i, karty_gracza in enumerate(rozdanie,start=1):
+    print("Gracz",i ,":",karty_gracza)
+

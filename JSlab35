@@ -1,0 +1,27 @@
+def histogram_znakow(lokalizacja_pliku):
+    histogram = {}
+    try:
+        # Otwórz plik tekstowy
+        with open(lokalizacja_pliku, 'r') as file:
+            # Odczytaj zawartość pliku
+            tekst = file.read()
+            # Iteruj po każdym znaku w tekście
+            for znak in tekst:
+                # Zlicz wystąpienia znaków
+                if znak in histogram:
+                    histogram[znak] += 1
+                else:
+                    histogram[znak] = 1
+        return histogram
+    except FileNotFoundError:
+        print("Plik nie został znaleziony.")
+        return None
+
+# Przykład użycia funkcji:
+lokalizacja_pliku = "E:/Szkola/jezy/lab3/tekst.txt"
+wynik = histogram_znakow(lokalizacja_pliku)
+print(wynik)
+
+
+
+

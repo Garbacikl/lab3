@@ -1,0 +1,15 @@
+from array import *
+import random
+
+n = int(input("Podaj liczbę elementów: "))
+tab2=[]
+for i in range(n):
+    liczba = random.randint(-5, 5)
+    tab2.append(liczba)
+
+for liczba in tab2:
+    print(liczba)
+
+with open("result.txt", "w") as file:
+    for liczba in tab2:
+        file.write(str(liczba) + "\n")
